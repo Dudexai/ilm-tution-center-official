@@ -12,20 +12,8 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import admissionsPoster from "@/assets/admissions-poster-new.jpeg";
+import { CAROUSEL_IMAGES } from "@/Carousel images";
 import { SUBJECTS, FACILITIES, SYLLABI, REVIEWS, SITE, TOPPERS, FACULTY } from "@/lib/site-data";
-
-const CAROUSEL_IMAGES = [
-  admissionsPoster,
-  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1536&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1536&auto=format&fit=crop",
-];
 
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,7 +45,7 @@ function HeroCarousel() {
             src={src}
             alt={`Carousel item ${idx + 1}`}
             className={`h-full w-full shrink-0 ${
-              idx === 0 ? "object-contain bg-brand-navy" : "object-cover grayscale-[0.15]"
+              idx === 0 ? "object-contain bg-brand-navy" : "object-cover"
             }`}
           />
         ))}
@@ -79,12 +67,14 @@ function HeroCarousel() {
         <ChevronRight className="h-6 w-6" />
       </button>
 
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 max-w-[92%] flex-wrap justify-center gap-1.5 rounded-full bg-brand-navy/60 px-3 py-1 backdrop-blur-xs">
         {CAROUSEL_IMAGES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`h-2 w-2 rounded-full transition-all ${idx === currentIndex ? "bg-brand-gold w-4" : "bg-white/50 hover:bg-white/80"}`}
+            className={`h-1.5 rounded-full transition-all ${
+              idx === currentIndex ? "bg-brand-gold w-4" : "w-1.5 bg-white/50 hover:bg-white/80"
+            }`}
             aria-label={`Go to image ${idx + 1}`}
           />
         ))}
