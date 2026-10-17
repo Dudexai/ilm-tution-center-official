@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Camera, ArrowRight } from "lucide-react";
 import { GALLERY } from "@/lib/site-data";
+import { AcademyVideoPlayer } from "@/components/AcademyVideoPlayer";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -41,6 +42,18 @@ function GalleryPage() {
             A walkthrough of our Royapettah centre — classrooms, labs, events and the everyday
             corners where our students do their best work.
           </p>
+        </div>
+      </section>
+
+      {/* Campus Video Tour */}
+      <section className="bg-brand-navy py-12 text-primary-foreground border-b border-border">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="mb-8 max-w-2xl">
+            <span className="font-eyebrow text-brand-gold">Video Tour</span>
+            <h2 className="mt-2 text-3xl sm:text-4xl text-white">Walk through our Royapettah centre</h2>
+            <p className="mt-2 text-sm text-white/70">Watch our classrooms and study halls in action.</p>
+          </div>
+          <AcademyVideoPlayer />
         </div>
       </section>
 

@@ -11,9 +11,11 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
+  Play,
 } from "lucide-react";
 import { CAROUSEL_IMAGES } from "@/Carousel images";
 import { SUBJECTS, FACILITIES, SYLLABI, REVIEWS, SITE, TOPPERS, FACULTY } from "@/lib/site-data";
+import { AcademyVideoPlayer } from "@/components/AcademyVideoPlayer";
 
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -137,6 +139,13 @@ function Index() {
                   Book a free trial
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
                 </Link>
+                <a
+                  href="#campus-tour"
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-6 py-4 font-semibold text-white backdrop-blur-xs transition-all hover:bg-white/20 hover:border-brand-gold hover:text-brand-gold"
+                >
+                  <Play className="h-4 w-4 fill-brand-gold text-brand-gold transition-transform group-hover:scale-110" />
+                  Watch Campus Tour
+                </a>
               </div>
             </div>
 
@@ -195,6 +204,62 @@ function Index() {
             <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
               <span className="h-px w-12 bg-brand-gold" />
               Academic Director · ilm Smart Academy
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CAMPUS IN MOTION — Video Showcase */}
+      <section id="campus-tour" className="section-pad scroll-mt-10 bg-brand-navy text-primary-foreground relative overflow-hidden">
+        {/* Subtle decorative background ambient glows */}
+        <div className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-brand-gold/15 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-1/4 h-96 w-96 rounded-full bg-brand-gold-deep/15 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-5">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="font-eyebrow text-brand-gold">Campus in Motion</span>
+            <h2 className="mt-3 text-4xl sm:text-5xl lg:text-6xl text-white">
+              Step inside <em className="text-brand-gold">ilm Smart Academy</em>.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-white/75 leading-relaxed">
+              Experience our disciplined learning atmosphere, passionate faculty, and modern classrooms in Royapettah, Chennai.
+            </p>
+          </div>
+
+          <div className="mt-10 md:mt-12">
+            <AcademyVideoPlayer />
+          </div>
+
+          {/* Value highlights strip below video */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-gold/15 text-brand-gold">
+                <BookOpen className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-white">Focused Classrooms</h4>
+                <p className="text-xs text-white/60">Air-conditioned batches with individual attention</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-gold/15 text-brand-gold">
+                <Award className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-white">Proven Pedagogy</h4>
+                <p className="text-xs text-white/60">Conceptual teaching for CBSE & Samacheer</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-gold/15 text-brand-gold">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-white">Safe & Inspiring</h4>
+                <p className="text-xs text-white/60">Monitored campus with library & study hall</p>
+              </div>
             </div>
           </div>
         </div>

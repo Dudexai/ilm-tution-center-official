@@ -108,7 +108,7 @@ function ReviewsPage() {
         <div className="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-2 lg:grid-cols-3">
           {allReviews.map((r, index) => (
             <article
-              key={r.id || `${r.name}-${index}`}
+              key={("id" in r && r.id ? String(r.id) : `${r.name}-${index}`)}
               className="relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-sm transition-all hover:shadow-md"
             >
               <div>
